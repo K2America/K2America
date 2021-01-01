@@ -4,3 +4,6 @@
 
 /CMS/obj/Debug
 /.vs/WebApp
+/CMS/bin
+/.vs
+/CMS/obj/Release
