@@ -1,0 +1,251 @@
+@media only screen and (max-width: 1300px) {
+
+}
+@media only screen and (max-width: 1200px) {
+    .site-navbar ul li a {
+        color: #666666;
+        padding: 20px 13px;
+    }
+    .footer-center ul li p,.footer-left p{
+      width: 90%;
+    }
+    .provide-serviceCard{
+      width: 305px;
+    }
+    .provideCard{
+      width: 305px;
+    }
+    .overlay .closebtn {
+      position: absolute;
+      top: 29px;
+      right: 21px;
+    }  
+    .software-solutionsLeft ul li.rocket,.software-solutionsLeft ul li.rocket2,.software-solutionsLeft ul li.rocket3{
+      width: 175px;
+    height: 107px;
+    }
+    .contactCard {
+      width: 300px
+    }
+    .mapBackground {
+      position: absolute;
+      top: -41px;
+      left: 58px;
+    }
+}
+  /* mobile breakpoint start */
+  @media only screen and (max-width: 991px) {
+    /* .container {
+      max-width: 720px;
+    } */
+    /* navbar css for mobile start */
+    .nav-toggler{
+      display: block;
+    }
+    .site-navbar ul li a {
+      color: #ffffff;
+      padding: 20px 13px;
+  }
+    .site-navbar {
+      min-height: 60px;
+    }
+    .site-navbar ul {
+      position: absolute;
+      width: 100%;
+      height: calc(100vh - 60px);
+      left: 0;
+      top: 0px;
+      flex-direction: column;
+      align-items: center;
+      /* border-top: 1px solid #444; */
+      background-color: #082471;
+      max-height: 0;
+      overflow: hidden;
+      transition: .3s;
+     
+    }
+    .responsive-link{
+      padding-top: 108px !important;
+    }
+    .nav-active{
+      border: none;
+    }
+    .site-navbar ul li {
+      width: 100%;
+      text-align: center;
+    }
+    .site-navbar ul li a {
+      padding: 10px;
+    }
+    .barIcon{
+      display: none !important;
+    }
+    /* .site-navbar ul li a:hover {
+      background-color: rgba(255,255,255,.1);
+    } */
+    .site-navbar ul.open {
+      max-height: 100vh;
+      overflow: visible;
+    }
+    .intro-area h2 {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }  
+    .site-navbar ul li a.login{
+        width: 24%;
+    margin: 0 auto;
+    }
+    .nav-toggler {
+      border: 3px solid #F9556D;
+      padding: 9px;
+      background-color: #F9556D;
+        cursor: pointer;
+        height: 43px;
+        width: 43px;
+        border-radius: 0%;
+        display: block;
+        z-index: 9;
+      }
+    /* navbar css for mobile end */
+    .order-first {
+      order: -1 !important;
+  }
+  .portfolioRight{
+    padding-bottom: 40px;
+  }
+  .footer-center h4{
+    padding-top: 40px;
+    margin: 0;
+  }
+  .footer-right h4{
+    padding-top: 40px;
+    margin: 0;
+    padding-bottom: 8px;
+  }
+  .borderLineLeft,.borderLineRight{
+    display: none;
+  }
+  .designCard{
+    width: 308px;
+    margin: 0 auto 30px;
+  }
+  .software-solutionsLeft ul li.rocket, .software-solutionsLeft ul li.rocket2, .software-solutionsLeft ul li.rocket3 {
+    width: 140px;
+    height: 136px;
+}
+.inputFelids input{
+  width: 48%;
+}
+.inputFelids textarea {
+  width: 98.2%;
+}
+.mapBackground {
+  position: absolute;
+  top: -41px;
+  left: 74px;
+}
+.contactCard{
+  margin-top: 30px;
+}
+.contactUs{
+  padding: 70px 0 40px;
+}
+.contact-right {
+  margin-top: 80px;
+}
+  }
+  /* mobile breakpoint end */
+  @media only screen and (max-width: 767px) {
+    .site-navbar ul li a.login{
+        width: 40%;
+    margin: 0 auto;
+    }
+    .portfolio,.ourprojects,.OurClients,footer,.provider-services,.software-solutions,.Provide-Services,.worldStart{
+      padding: 50px 0;
+    }
+    .portfolioLeft p br, .ourprojects p, .OurClients p br{
+      display: none;
+    }
+    .software-solutionsLeft ul li.rocket, .software-solutionsLeft ul li.rocket2, .software-solutionsLeft ul li.rocket3 {
+      width: 170px;
+      height: 120px;
+  }
+  .provider-services p{
+    width: 100%;
+    padding-bottom: 0;
+  }
+  .Provide-Services h6{
+    width: 100%;
+    padding-bottom: 0;
+  }
+  }
+  @media only screen and (max-width: 599px) {
+    .site-navbar ul li a.login{
+        width: 60%;
+    margin: 0 auto;
+    }
+    .portfolioLeft h1,.ourprojects h2,.OurClients h2,.Provide-Services h2,.worldStartLeft h2{
+      font-size: 30px;
+      line-height: 42px;
+    }
+    .worldStartLeft h2 br{
+      display: none;
+    }
+    .portfolioLeft p,.ourprojects p,.OurClients p{
+      font-size: 14px;
+      line-height: 26px;
+    }
+    .portfolio1_hover h3{
+      padding-bottom: 10px;
+    }
+    .software-solutionsLeft ul li.rocket, .software-solutionsLeft ul li.rocket2, .software-solutionsLeft ul li.rocket3 {
+      width: 170px;
+      height: 103px;
+  }
+  .provider-services p{
+    width: 100%;
+  }
+  .mapBackground {
+    position: absolute;
+    top: -41px;
+    left: 55px;
+}
+  }
+  @media only screen and (max-width: 479px) {
+    .site-navbar ul li a.login{
+        width: 80%;
+    margin: 0 auto;
+    }
+    .portfolio1_hover a{
+      line-height: 32px;
+      width: 112px;
+      height: 32px
+    }
+    .designCard,.provideCard,.provide-serviceCard{
+      width: 284px;
+    }
+    .software-solutionsLeft ul li img{
+      width: 30px;
+      height: 30px;
+    }
+    .software-solutionsLeft ul li.rocket, .software-solutionsLeft ul li.rocket2, .software-solutionsLeft ul li.rocket3 {
+      width: 170px;
+      height: 82px;
+  }
+  .inputFelids input {
+    width: 100%;
+}
+.inputFelids input+input {
+  width: 100%;
+  margin-left: 0;
+  margin-top: 30px;
+}
+.contactCard {
+  width: 278px;
+}
+.mapBackground {
+  position: absolute;
+  top: -41px;
+  left: 34px;
+}
+  }

@@ -1,0 +1,15 @@
+﻿@using K2America.Components.Navigation;
+@model HeaderMenuViewModel
+@if (Model.Items != null && Model.Items.Any())
+{
+    @foreach (var item in Model.Items)
+    {
+        <li class="responsive-menuTwo">
+            <h6><img src="@item.HeaderMenuItems.Icon" alt="@item.HeaderMenuItems.Name" />@item.HeaderMenuItems.Name</h6>
+            @foreach (var menuItem in item.MenuItems)
+            {
+                <a href="@menuItem.NodeAlias">@menuItem.DocumentName</a>
+            }
+        </li>
+    }
+}

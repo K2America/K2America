@@ -1,0 +1,36 @@
+﻿@using K2America.Components.Widgets
+@model MultipleTileViewModel
+
+@if (Model.Items != null && Model.Items.Any())
+{
+    <div class="ourprojects">
+        <div class="container">
+            @Html.Raw(Model.Title)
+            @if (!string.IsNullOrEmpty(Model.Description))
+            {
+                @Html.Raw(Model.Description)
+            }
+            <div class="row">
+                @foreach(var item in Model.Items)
+                {
+                <div class="col-lg-@item.TileRatio">
+                    <div class="portfolio1">
+                        <img src="@item.Image" alt="@item.ImageAltText" />
+                        <div class="positionCard"></div>
+                        <div class="portfolio1_hover">
+                            <div>
+                                <h3>@item.Title</h3>
+                                @if (!string.IsNullOrEmpty(item.CTAText) && !string.IsNullOrEmpty(item.CTALink))
+                                {
+                                    <a href="@item.CTALink">@item.CTAText</a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+
+}

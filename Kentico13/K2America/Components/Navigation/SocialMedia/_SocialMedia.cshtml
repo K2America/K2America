@@ -1,0 +1,13 @@
+﻿@using K2America.Models;
+@model IEnumerable<SocialMedia>
+@if (Model != null && Model.Count() > 0 && Model.Any())
+{
+<ul class="footerIcons">
+    @foreach (var item in Model)
+    {
+        <li>
+            <a href=""><img src="@item.Logo" class="@(item.Name.ToLower()=="facebook" ? "facebook":"")" alt="@item.LogoAltText" /></a>
+        </li>
+    }
+ </ul>
+}

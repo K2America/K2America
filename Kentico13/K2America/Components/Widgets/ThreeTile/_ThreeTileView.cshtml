@@ -1,0 +1,36 @@
+﻿@using K2America.Components.Widgets
+@model ThreeTileViewModel
+
+@if (Model.Items != null && Model.Items.Any())
+{
+    <div class="provider-services">
+        <div class="container">
+            @Html.Raw(Model.Title)
+            @if (!string.IsNullOrEmpty(Model.Description))
+            {
+                @Html.Raw(Model.Description)
+            }
+            <div class="row">
+                @foreach (var item in Model.Items)
+                {
+                    <div class="col-lg-4">
+                        <div class="provide-serviceCard">
+                            <img src="@item.Image" alt="@item.ImageAltText" />
+                            <h4>@item.Title</h4>
+                            @if (!string.IsNullOrEmpty(item.Description))
+                            {
+                                <p>
+                                    @item.Description
+                                </p>
+                            }
+                            @if (!string.IsNullOrEmpty(item.CTALink) && !string.IsNullOrEmpty(item.CTAText))
+                            {
+                                <a href="@item.CTALink">@item.CTAText</a>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}

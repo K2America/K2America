@@ -1,0 +1,35 @@
+﻿@using K2America.Components.Widgets
+@model CardWidgetViewModel
+
+@if (Model.Items != null && Model.Items.Any())
+{
+    <div class="demands">
+        <div class="container">
+            <h2>@Model.Heading</h2>
+            <div class="row">
+                @{ int itemIndex = 1;}
+                @foreach(var item in Model.Items)
+                { 
+                    <div class="col-lg-4">
+                        <div class="demandsCard @(itemIndex==2?"demandsCard2":"")">
+                            <img src="@item.Image" alt="@item.ImageAltText" />
+                            <h4>@item.Title</h4>
+                            @if (!string.IsNullOrEmpty(item.Description))
+                            {
+                                <p>
+                                    @item.Description
+                                </p>
+                            }
+                            @if (itemIndex == 2)
+                            {
+                                <div class="borderLineLeft"></div>
+                                <div class="borderLineRight"></div>
+                            }
+                        </div>
+                    </div>
+                    itemIndex++;
+                }
+            </div>
+        </div>
+    </div>
+}

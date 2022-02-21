@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Generated\CustomTable\" />
+    <Folder Include="Enums\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Kentico.Xperience.AspNetCore.WebApp" Version="13.0.52" />
+  </ItemGroup>
+
+</Project>

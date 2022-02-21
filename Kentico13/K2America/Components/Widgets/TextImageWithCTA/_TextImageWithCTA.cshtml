@@ -1,0 +1,27 @@
+﻿@using K2America.Components.Widgets
+@model TextImageWithCTAViewModel
+
+@if (!string.IsNullOrEmpty(Model.Title))
+{
+    <div class="portfolio">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 portfolioLeft">
+                    <div>
+                       @Html.Raw(Model.Title)
+                      @Html.Raw(Model.Description)
+                        @if(!string.IsNullOrEmpty(Model.CTAText) && !string.IsNullOrEmpty(Model.CTALink))
+                        { 
+                        <a href="@Model.CTALink">@Model.CTAText</a>
+                        }
+                    </div>
+                </div>
+                <div class="col-lg-6 portfolioRight order-first">
+                    <div>
+                        <img src="@Model.ImagePath" alt="@Model.ImageAltText" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,235 @@
+﻿@{
+    var settingInfo = PageGeneralSettingProvider.GetSettngs();
+    var LogoAltText = settingInfo.GetValue("LogoAltText");
+    var PhoneNumber = settingInfo.GetValue("PhoneNumber");
+    var PhoneIcon = settingInfo.GetValue("PhoneIcon");
+    var Address = settingInfo.GetValue("Address");
+    var AddressIcon = settingInfo.GetValue("AddressIcon");
+    var Email = settingInfo.GetValue("Email");
+    var EmailIcon = settingInfo.GetValue("EmailIcon");
+    var FooterText = settingInfo.GetValue("FooterText");
+    var HeaderLogo = settingInfo.GetValue("HeaderLogo");
+    var FooterLogo = settingInfo.GetValue("FooterLogo");
+    var CopyRightText = settingInfo.GetValue("CopyRightText");
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <!-- <meta name="author" content="TemplateMo" /> -->
+    <link rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="images/logo.svg" />
+    <title>K2</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
+          rel="stylesheet" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="css/examples.css" /> -->
+    <link href="~/css/innerpage-styles.css" rel="stylesheet" />
+    <link href="~/css/responsive.css" rel="stylesheet" />
+    <style></style>
+    <page-builder-styles />
+    @Html.Kentico().PageBuilderStyles()
+</head>
+
+<body>
+    <div class="section" id="section1">
+        <header class="header-area">
+            <div class="navbar-area">
+                <div class="container">
+                    <nav class="site-navbar">
+                        <a href="/" class="site-logo">
+                            <img src="@HeaderLogo" alt="@LogoAltText" />
+                        </a>
+
+                        <ul>
+                            <vc:main-menu />
+                            <li><a class="barIcon" onclick="openNav()">&#9776;</a></li>
+                        </ul>
+
+                        <button class="nav-toggler">
+                            <span></span>
+                        </button>
+
+                        <div id="myNav" class="overlay">
+                            <a href="javascript:void(0)"
+                               class="closebtn"
+                               onclick="closeNav()">&times;</a>
+                            <div class="overlay-content container">
+                                <ul class="row">
+                                    <vc:header-menu home-view="false" />
+                                    <li class="workSubMenu col-lg-4">
+                                        <h6>
+                                            <img src="images/contact-icon.svg" alt="" />Contact Info
+                                        </h6>
+                                        <p>
+                                            <img src="@AddressIcon" alt="@LogoAltText" />@Html.Raw(Address)
+                                        </p>
+                                        <a href="#" class="location">
+                                            <img src="@PhoneIcon" alt="@LogoAltText" />@PhoneNumber
+                                        </a>
+                                        <a href="#" class="location">
+                                            <img src="@EmailIcon" alt="@LogoAltText" />@Email
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        @RenderBody()
+
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="footer-left">
+                            <img src="@FooterLogo" alt="@LogoAltText" />
+                            <p>
+                                @FooterText
+                            </p>
+                            <ul class="footerIcons">
+                                <vc:social-media home-view="false" />
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="footer-center">
+                            <h4>Contact Info</h4>
+                            <ul>
+                                <li>
+                                    <p>
+                                        <img src="@AddressIcon" alt="@LogoAltText" /> @Html.Raw(Address)
+                                    </p>
+                                </li>
+                                <li>
+                                    <a href="#" class="location">
+                                        <img src="@PhoneIcon" alt="@LogoAltText" />@PhoneNumber
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="location">
+                                        <img src="@EmailIcon" alt="@LogoAltText" />@Email
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="footer-right">
+                            <h4>Quick links</h4>
+                            <ul>
+                                <vc:footer />
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div class="footer-copyright">
+            <div class="container">
+                <h5>@CopyRightText</h5>
+            </div>
+        </div>
+        <!-- footer end -->
+    </div>
+    <page-builder-scripts />
+
+    @Html.Kentico().PageBuilderScripts()
+
+    @RenderSection("PreBundleScripts", required: false)
+    <script src="~/js/jquery.js"></script>
+    <script src="~/js/jquery-ui.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/fullpage.scrollHorizontally.min.js"></script>
+    <script src="~/js/fullpage.extensions.min.js"></script>
+
+    <script>
+        function openNav() {
+            document.getElementById("myNav").style.height = "65%";
+        }
+
+        function closeNav() {
+            document.getElementById("myNav").style.height = "0%";
+        }
+    </script>
+    <script type="text/javascript">
+        $(window).on("scroll", function () {
+            if ($(window).scrollTop()) {
+                $(".header-area").addClass("nav-sticky");
+            } else {
+                $(".header-area").removeClass("nav-sticky");
+            }
+        });
+    </script>
+
+    <script>
+        // define all UI variable
+        const navToggler = document.querySelector(".nav-toggler");
+        const navMenu = document.querySelector(".site-navbar ul");
+        const navLinks = document.querySelectorAll(".site-navbar a");
+
+        // load all event listners
+        allEventListners();
+
+        // functions of all event listners
+        function allEventListners() {
+            // toggler icon click event
+            navToggler.addEventListener("click", togglerClick);
+            // nav links click event
+            navLinks.forEach((elem) =>
+                elem.addEventListener("click", navLinkClick)
+            );
+        }
+
+        // togglerClick function
+        function togglerClick() {
+            navToggler.classList.toggle("toggler-open");
+            navMenu.classList.toggle("open");
+        }
+
+        // navLinkClick function
+        function navLinkClick() {
+            if (navMenu.classList.contains("open")) {
+                navToggler.click();
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $("#myContainer").fullpage({
+                // sectionsColor: ['#ff73a1', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff', '#ccc'],
+                anchors: ["firstPage", "secondPage", "3rdPage", "4thpage"],
+                menu: "#menu",
+                slidesNavigation: true,
+                scrollHorizontally: true,
+                //scrollHorizontallyKey: 'YWx2YXJvdHJpZ28uY29tX01mU2MyTnliMnhzU0c5eWFYcHZiblJoYkd4NVNRcg==',
+                afterSlideLoad: function (section, origin, destination, direction) {
+                    console.log({
+                        section: section,
+                        origin: origin,
+                        destination: destination,
+                        direction: direction,
+                    });
+                },
+                onSlideLeave: function (section, origin, destination, direction) {
+                    console.log({
+                        section: section,
+                        origin: origin,
+                        destination: destination,
+                        direction: direction,
+                    });
+                },
+            });
+        });
+    </script>
+</body>
+</html>

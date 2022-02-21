@@ -1,0 +1,15 @@
+﻿@using K2America.Models;
+@model IEnumerable<SocialMedia>
+@if (Model != null && Model.Count() > 0 && Model.Any())
+{
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>
+                <a href="@item.SocialMediaLink">
+                    <img src="@item.LogoHome" alt="@item.LogoAltText" />
+                </a>
+            </li>
+        }
+    </ul>
+}

@@ -2,8 +2,15 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/CMS/obj/Debug
-/.vs/WebApp
-/CMS/bin
+/Kentico13/K2America/obj
+/Kentico13/CMS/obj
+/Kentico13/K2America/K2America.csproj.user
 /.vs
-/CMS/obj/Release
+/Kentico13/K2.Models/bin/Debug/net5.0
+/Kentico13/K2.Models/obj
+/Kentico13/K2America/bin/Debug/net5.0
+/Kentico13/K2America.Core/bin/Debug/net5.0
+/Kentico13/K2America.Core/obj
+/Kentico13/CMS/K2America/media/images/__thumbnails
+/Kentico13/CMS/Old_App_Code/CMSClasses/Pages/K2America
+/Kentico13/K2America/K2America/media/images/__thumbnails

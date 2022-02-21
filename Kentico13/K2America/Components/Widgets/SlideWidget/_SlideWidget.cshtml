@@ -1,0 +1,63 @@
+﻿@using K2America.Components.Widgets
+@model SlideWidgetViewModel
+
+@if (!string.IsNullOrEmpty(Model.LayoutType))
+{
+    @if (Model.LayoutType == "fullwidthimage")
+    {
+        <div class="slide sliderBanner" id="slide1">
+            <img src="@Model.ImagePath" alt="@Model.ImageAltText" />
+            <div class="row sliderRow">
+                <div class="col-lg-6 col-md-12 col-sm-12 col-12 slider1">
+
+                    <div>
+                           @Html.Raw(Model.Title)
+                          @Html.Raw(Model.Description)
+                        <div class="sliderButton">
+                            @if (!string.IsNullOrEmpty(Model.CTALink1) && !string.IsNullOrEmpty(Model.CTAText1))
+                            {
+                                <a href="@Model.CTALink1" class="ourProcessBtn">@Model.CTAText1</a>
+                            }
+                            @if (!string.IsNullOrEmpty(Model.CTALink2) && !string.IsNullOrEmpty(Model.CTAText2))
+                            {
+                                <a href="@Model.CTALink2" class="contactBtn">@Model.CTAText2</a>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+
+                </div>
+            </div>
+
+        </div>
+    }
+    else
+    {
+        <div class="slide" id="slide2">
+            <div class="row sliderRow">
+                <div class="col-lg-6 col-md-12 col-sm-12 col-12 slideOneLeft slider2">
+                    <div>
+                            @Html.Raw(Model.Title)
+                            @Html.Raw(Model.Description)
+                        <div class="sliderButton">
+                            @if (!string.IsNullOrEmpty(Model.CTALink1) && !string.IsNullOrEmpty(Model.CTAText1))
+                            {
+                                <a href="@Model.CTALink1" class="ourProcessBtn">@Model.CTAText1</a>
+                            }
+                            @if (!string.IsNullOrEmpty(Model.CTALink2) && !string.IsNullOrEmpty(Model.CTAText2))
+                            {
+                                <a href="@Model.CTALink2" class="contactBtn">@Model.CTAText2</a>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 col-12 slideOneRight">
+                    <div>
+                        <img src="@Model.ImagePath" alt="@Model.ImageAltText" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}

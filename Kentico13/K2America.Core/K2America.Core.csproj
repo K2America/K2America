@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+ <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Kentico.Xperience.AspNetCore.WebApp" Version="13.0.52" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\K2.Models\K2America.Models.csproj" />
+  </ItemGroup>
+
+</Project>

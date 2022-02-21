@@ -1,0 +1,9 @@
+﻿@using CMS.DocumentEngine;
+@model IEnumerable<TreeNode>
+@if (Model != null && Model.Count() > 0 && Model.Any())
+{
+    @foreach (var item in Model)
+    {
+        <li><a href="@item.NodeAlias">@item.DocumentName</a></li>
+    }
+}

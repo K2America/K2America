@@ -1,0 +1,18 @@
+﻿@using Kentico.PageBuilder.Web.Mvc
+@using Kentico.Web.Mvc
+@addTagHelper Kentico.Content.Web.Mvc.EditableAreaTagHelper, Kentico.Content.Web.Mvc
+
+@{ ViewBag.Scripts = new List<string>(); }
+
+<div id="page">
+    <editable-area area-identifier="main" />
+</div>
+
+@if (ViewBag.Scripts.Count > 0)
+{
+    @section scripts
+    {
+        @foreach (string sc in ViewBag.Scripts)
+        {
+            @Html.Raw(sc)}
+    }}

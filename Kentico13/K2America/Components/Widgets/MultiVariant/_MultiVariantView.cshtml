@@ -1,0 +1,62 @@
+﻿@using K2America.Components.Widgets
+@model MultiVariantViewModel
+
+@if (Model.Items != null && Model.Items.Any())
+{
+    <div class="worldStart">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 worldStartLeft">
+                    <div>
+                        @Html.Raw(Model.Title)
+                        @if (!string.IsNullOrEmpty(Model.Description))
+                        {
+                            <p>@Model.Description</p>
+                        }
+                        <div class="row">
+                            @if (!string.IsNullOrEmpty(Model.KeyWords))
+                            {
+                                @Html.Raw(Model.KeyWords)
+                            }
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row">
+
+                        @{ var g = Model.Items.GroupBy(r => Model.Items.ToList().IndexOf(r) / 2).ToList(); }
+                        @{ int itemIndex = 1;}
+                        @foreach (var parentItem in g)
+                        {
+                            <div class="col-lg-6 @(itemIndex==1?"":"designCardFlex")">
+                                @foreach (var item in parentItem)
+                                {
+                                    <div class="designCard @item.TileBackgroundColor">
+                                        <ul>
+                                            <li>
+                                                <img src="@item.Image" alt="@item.ImageAltText" />
+                                            </li>
+                                        </ul>
+                                        <h4>@item.Title</h4>
+                                        @if (!string.IsNullOrEmpty(item.Description))
+                                        {
+                                            <p>
+                                                @item.Description
+                                            </p>
+                                        }
+                                        @if (!string.IsNullOrEmpty(item.CTALink) && !string.IsNullOrEmpty(item.CTAText))
+                                        {
+                                            <a href="@item.CTALink">@item.CTAText <img src="images/right-arrow.svg" alt="" /></a>
+                                        }
+                                    </div>
+                                }
+                            </div>
+                            itemIndex++;
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

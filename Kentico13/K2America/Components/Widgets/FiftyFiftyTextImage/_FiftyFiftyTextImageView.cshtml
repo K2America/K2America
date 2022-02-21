@@ -1,0 +1,40 @@
+﻿@using K2America.Components.Widgets
+@model FiftyFiftyTextImageViewModel
+
+@if (Model.Items != null && Model.Items.Any())
+{
+    <div class="software-solutions">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 software-solutionsLeft">
+                    <div>
+                        @foreach(var item in Model.Items)
+                        { 
+                        <div class="software-solutionsLeftIn">
+                            <ul>
+                                <li class="@item.IconBackgroundColor">
+                                    <img src="@item.Icon1" alt="@item.Title" />
+                                </li>
+                                <li>
+                                    <h4><a href="@item.CTALink">@item.Title</a></h4>
+                                    @if (!string.IsNullOrEmpty(item.Description))
+                                    {
+                                        <p>
+                                            @item.Description
+                                        </p>
+                                    }
+                                </li>
+                            </ul>
+                        </div>
+                        }
+                    </div>
+                </div>
+                <div class="col-lg-6 software-solutionsRight">
+                    <div>
+                        <img src="@Model.ImagePath" alt="@Model.ImageAltText" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,200 @@
+﻿
+@{
+    var settingInfo = PageGeneralSettingProvider.GetSettngs();
+    var LogoAltText = settingInfo.GetValue("LogoAltText");
+    var PhoneNumber = settingInfo.GetValue("PhoneNumber");
+    var PhoneIcon = settingInfo.GetValue("PhoneIcon");
+    var Address = settingInfo.GetValue("Address");
+    var AddressIcon = settingInfo.GetValue("AddressIcon");
+    var Email = settingInfo.GetValue("Email");
+    var EmailIcon = settingInfo.GetValue("EmailIcon");
+    var FooterText = settingInfo.GetValue("FooterText");
+    var HeaderLogo = settingInfo.GetValue("HeaderLogo");
+    var FooterLogo = settingInfo.GetValue("FooterLogo");
+}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <!-- <meta name="author" content="TemplateMo" /> -->
+    <link rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="assets/images/logo.svg" />
+    <title>K2</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
+          rel="stylesheet" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/fullpage.min.css" rel="stylesheet" />
+    <link href="~/css/style.css" rel="stylesheet" />
+    <link href="~/css/responsive.css" rel="stylesheet" />
+    <style></style>
+    <page-builder-styles />
+    @Html.Kentico().PageBuilderStyles()
+</head>
+<body>
+    <div id="myContainer" class="myContainer">
+        <div class="section" id="section1">
+            <header class="header-area">
+                <div class="navbar-area">
+                    <div class="container">
+                        <nav class="site-navbar">
+                            <a href="/" class="site-logo">
+                                <img src="@HeaderLogo" alt="@LogoAltText" />
+                            </a>
+                            <div class="container">
+                                <ul>
+                                    <vc:header-menu home-view="true"/>
+                                    <li class="responsive-menuTwo">
+                                        <h6><img src="images/contact-icon.svg" alt="@LogoAltText" />Contact Info</h6>
+                                        <p><img src="@AddressIcon" alt="@LogoAltText" />@Html.Raw(Address)</p>
+                                        <a href="#" class="location"><img src="@PhoneIcon" alt="@LogoAltText" />@PhoneNumber</a>
+                                        <a href="#" class="location"><img src="@EmailIcon" alt="@LogoAltText" />@Email</a>
+
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <button class="nav-toggler">
+                                <span></span>
+                            </button>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            @RenderBody()
+            <div class="slide sliderBanner5" id="slide5">
+                <div class="row sliderRow">
+                    <div class="col-lg-6 slideOneLeft slider5">
+                        <div class="slider5Row">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-12 sliderFiveLeft">
+                                    <div class="slider5Left">
+                                        <h5>Work</h5>
+                                        <ul>
+                                            <vc:footer />
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-12 sliderFiveLeft">
+                                    <div class="slider5Right">
+                                        <h5>Contact Info</h5>
+                                        <ul>
+                                            <li>
+                                                <p>
+                                                    <img src="@AddressIcon" alt="@LogoAltText" /> @Html.Raw(Address)
+                                                </p>
+                                            </li>
+                                            <li><a href="#" class="location"><img src="@PhoneIcon" alt="@LogoAltText" />@PhoneNumber</a></li>
+                                            <li><a href="#" class="location"><img src="@EmailIcon" alt="@LogoAltText" />@Email</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="socialIcons">
+                                <ul>
+                                    <li><img src="@FooterLogo" alt="@LogoAltText" /></li>
+                                    <li>
+                                        <p>
+                                            @FooterText
+                                        </p>
+                                        <vc:social-media home-view="true"/>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- <h6>© K2America PVT LTD 2022 . All rights reserved</h6> -->
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <!-- <div>
+                          <img src="images/sliderFive.png" class="slider5_Img" alt="" />
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <page-builder-scripts />
+
+    @Html.Kentico().PageBuilderScripts()
+
+    @RenderSection("PreBundleScripts", required: false)
+    <script src="~/js/jquery.js"></script>
+    <script src="~/js/jquery-ui.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/fullpage.scrollHorizontally.min.js"></script>
+    <script src="~/js/fullpage.extensions.min.js"></script>
+    <script>
+        // define all UI variable
+        const navToggler = document.querySelector(".nav-toggler");
+        const navMenu = document.querySelector(".site-navbar ul");
+        const navLinks = document.querySelectorAll(".site-navbar a");
+
+        // load all event listners
+        allEventListners();
+
+        // functions of all event listners
+        function allEventListners() {
+            // toggler icon click event
+            navToggler.addEventListener("click", togglerClick);
+            // nav links click event
+            navLinks.forEach((elem) =>
+                elem.addEventListener("click", navLinkClick)
+            );
+        }
+
+        // togglerClick function
+        function togglerClick() {
+            navToggler.classList.toggle("toggler-open");
+            navMenu.classList.toggle("open");
+        }
+
+        // navLinkClick function
+        function navLinkClick() {
+            if (navMenu.classList.contains("open")) {
+                navToggler.click();
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        let media = window.matchMedia("(max-width:991px)");
+        if (!media.matches) {
+            jQuery(function ($) {
+                $("#myContainer").fullpage({
+                    // sectionsColor: ['#ff73a1', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff', '#ccc'],
+                    anchors: ["firstPage", "secondPage", "3rdPage", "4thpage"],
+                    menu: "#menu",
+                    slidesNavigation: true,
+                    scrollHorizontally: true,
+                    //scrollHorizontallyKey: 'YWx2YXJvdHJpZ28uY29tX01mU2MyTnliMnhzU0c5eWFYcHZiblJoYkd4NVNRcg==',
+                    afterSlideLoad: function (section, origin, destination, direction) {
+                        console.log({
+                            section: section,
+                            origin: origin,
+                            destination: destination,
+                            direction: direction,
+                        });
+                    },
+                    onSlideLeave: function (section, origin, destination, direction) {
+                        console.log({
+                            section: section,
+                            origin: origin,
+                            destination: destination,
+                            direction: direction,
+                        });
+                    },
+                });
+            });
+        }
+
+
+    </script>
+</body>
+</html>

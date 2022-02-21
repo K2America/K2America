@@ -1,0 +1,25 @@
+﻿@using K2America.Components.Widgets
+@model OurClientViewModel
+
+@if (Model.Items != null && Model.Items.Any())
+{
+    <div class="OurClients">
+        <div class="container">
+            @Html.Raw(Model.Title)
+            @if(!string.IsNullOrEmpty(Model.Description))
+            { 
+            @Html.Raw(Model.Description)
+            }
+            <div class="row">
+                @foreach (var item in Model.Items)
+                {
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 our-clientsOne">
+                    <div>
+                        <img src="@item.CoverImage" onmouseover='src = "@item.HoverImage"' onmouseout='src = "@item.CoverImage"' alt="@item.ImageAltText" />
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+}
