@@ -23,7 +23,7 @@
     <link rel="icon"
           type="image/png"
           sizes="16x16"
-          href="images/logo.svg" />
+          href="@HeaderLogo" />
     <title>K2</title>
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
           rel="stylesheet" />
@@ -32,7 +32,8 @@
     <link href="~/css/bootstrap.min.css" rel="stylesheet" />
     <!-- <link rel="stylesheet" href="css/examples.css" /> -->
     <link href="~/css/innerpage-styles.css" rel="stylesheet" />
-    <link href="~/css/responsive.css" rel="stylesheet" />
+    <link href="~/css/innerpage-responsive.css" rel="stylesheet" />
+    <link href="~/css/contactform.css" rel="stylesheet" />
     <style></style>
     <page-builder-styles />
     @Html.Kentico().PageBuilderStyles()
@@ -71,10 +72,10 @@
                                         <p>
                                             <img src="@AddressIcon" alt="@LogoAltText" />@Html.Raw(Address)
                                         </p>
-                                        <a href="#" class="location">
+                                        <a href="tel:@PhoneNumber" class="location">
                                             <img src="@PhoneIcon" alt="@LogoAltText" />@PhoneNumber
                                         </a>
-                                        <a href="#" class="location">
+                                        <a href="mailto:@Email" class="location">
                                             <img src="@EmailIcon" alt="@LogoAltText" />@Email
                                         </a>
                                     </li>
@@ -111,12 +112,12 @@
                                     </p>
                                 </li>
                                 <li>
-                                    <a href="#" class="location">
+                                    <a href="tel:@PhoneNumber" class="location">
                                         <img src="@PhoneIcon" alt="@LogoAltText" />@PhoneNumber
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="location">
+                                    <a href="mailto:@Email" class="location">
                                         <img src="@EmailIcon" alt="@LogoAltText" />@Email
                                     </a>
                                 </li>
@@ -151,10 +152,10 @@
     <script src="~/js/bootstrap.min.js"></script>
     <script src="~/js/fullpage.scrollHorizontally.min.js"></script>
     <script src="~/js/fullpage.extensions.min.js"></script>
-
+    <script src="~/js/bootstrap.bundle.min.js"></script>
     <script>
         function openNav() {
-            document.getElementById("myNav").style.height = "65%";
+            document.getElementById("myNav").style.height = "400px";
         }
 
         function closeNav() {
@@ -169,8 +170,15 @@
                 $(".header-area").removeClass("nav-sticky");
             }
         });
-    </script>
 
+        $(window).on("scroll", function () {
+            if ($(window).scrollTop()) {
+                $(".nav-responsive").addClass("nav-responsiveScroll");
+            } else {
+                $(".nav-responsive").removeClass("nav-responsiveScroll");
+            }
+        });
+    </script>
     <script>
         // define all UI variable
         const navToggler = document.querySelector(".nav-toggler");
@@ -228,6 +236,34 @@
                         direction: direction,
                     });
                 },
+            });
+        });
+    </script>
+    <script>
+        $(".nav-tabs a").click(function () {
+            var position = $(this).parent().position();
+            var width = $(this).parent().width();
+            $(".tabSlider").css({ left: +position.left, width: width });
+        });
+        var actWidth = $(".nav-tabs").find(".active").parent("li").width();
+        var actPosition = $(".nav-tabs .active").position();
+        $(".tabSlider").css({ left: +actPosition.left, width: actWidth });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $(".set > h4").on("click", function () {
+                if ($(this).hasClass("activeAccordion")) {
+                    $(this).removeClass("activeAccordion");
+                    $(this).siblings(".content").slideUp(200);
+                    $(".set > h4 i").removeClass("fa-minus").addClass("fa-plus");
+                } else {
+                    $(".set > h4 i").removeClass("fa-minus").addClass("fa-plus");
+                    $(this).find("i").removeClass("fa-plus").addClass("fa-minus");
+                    $(".set > h4").removeClass("activeAccordion");
+                    $(this).addClass("activeAccordion");
+                    $(".content").slideUp(200);
+                    $(this).siblings(".content").slideDown(200);
+                }
             });
         });
     </script>

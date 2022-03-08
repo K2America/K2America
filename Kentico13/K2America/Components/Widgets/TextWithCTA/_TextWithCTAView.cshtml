@@ -1,0 +1,31 @@
+﻿@using K2America.Components.Widgets
+@using Kentico.PageBuilder.Web.Mvc
+@model ComponentViewModel<TextWithCTAProperties>
+
+@if (!string.IsNullOrEmpty(Model.Properties.Title))
+{
+    <div class="Hirecustom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 HirecustomLeft">
+                    <div class="">
+                        @Html.Raw(Model.Properties.Title)
+
+                        @if (!string.IsNullOrEmpty(Model.Properties.Description))
+                        {
+                            <p>@Model.Properties.Description</p>
+                        }
+                    </div>
+                </div>
+                <div class="col-lg-3 HirecustomRight">
+                    @if (!string.IsNullOrEmpty(Model.Properties.CTAText) && !string.IsNullOrEmpty(Model.Properties.CTALink))
+                    {
+                        <div class="">
+                            <a href="@Model.Properties.CTALink">@Model.Properties.CTAText</a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}

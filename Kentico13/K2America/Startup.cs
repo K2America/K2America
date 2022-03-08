@@ -92,6 +92,11 @@ namespace K2America
                pattern: "home",
                defaults: new { controller = "Home", action = "Index" }
             );
+                endpoints.MapControllerRoute(
+            name: "Services",
+            pattern: "Services/GetServices",
+            defaults: new { controller = "Services", action = "GetServices" }
+         );
             });
         }
     }

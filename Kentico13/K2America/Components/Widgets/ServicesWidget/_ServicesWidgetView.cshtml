@@ -1,0 +1,85 @@
+﻿@using K2America.Components.Widgets
+@model ServicesWidgetViewModel
+@if (Model.Items.ServicesContent != null && Model.Items.ServicesContent.Any())
+{
+    <div class="softwareDevelopment">
+        <div class="container">
+            @Html.Raw(Model.Title)
+            @if (!string.IsNullOrEmpty(Model.Description))
+            {
+                @Html.Raw(Model.Description)
+            }
+            <div class="row" id="services-loadmore">
+                @foreach (var item in Model.Items.ServicesContent)
+                {
+                    <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                        <div class="cstomerDevelopment">
+                            <img src="@item.Image" alt="@item.ImageAltText" />
+                            <h4>@item.Title</h4>
+                            <div class="serviceBorder"></div>
+                            @if (!string.IsNullOrEmpty(item.Description))
+                            {
+                                <p>
+                                    @item.Description
+                                </p>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+            @if (Model.Items.HasMorePages)
+            {
+            <div class="feedback-button">
+                <button id="load-more-services" class="feedback-button-in">VIEW MORE</button>
+            </div>
+            <input id="content-path" style="display:none;" value="@Model.ContentPath"/>
+            }
+        </div>
+    </div>
+}
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script>
+    var contentPath = $("#content-path").val();
+    var hdnPageCounter = 2;
+    function parseImagePath(imagePath) {
+        if (imagePath != null & imagePath != undefined) {
+            imagePath = imagePath.replace("~", "");
+            return imagePath;
+        }
+        return (false);
+    }
+    //load More button
+    if ($('#load-more-services').length) {
+
+        $('#load-more-services').on('click', function () {
+            let $btn = $(this);
+            $.get("/Services/GetServices" + "?ajax=true&page=" + hdnPageCounter + "&contentPath=" + contentPath, function (services) {
+                $.each(services.items.servicesContent, function () {
+                    var servicesHTML;
+                    servicesHTML = "<div class='col-lg-4 col-md-6 col-sm-12 col-12'>";
+                    servicesHTML += "<div class='cstomerDevelopment'>";
+                    servicesHTML += "<img src='" + parseImagePath(this.image) + "' alt='" + this.imageAltText + "'/>";
+                    servicesHTML += "<h4>" + this.title+"</h4>";
+                    servicesHTML += "<div class='serviceBorder'></div>";
+                    if (this.description != null)
+                            {
+                        servicesHTML += "<p>" + this.description + "</p>";
+                            }
+                    servicesHTML += "</div>";
+                    servicesHTML += "</div>";
+
+                    $("#services-loadmore").append(servicesHTML);
+                });
+                // prepare next page or hide button
+                hdnPageCounter++;
+                if (services != null && services.items.hasMorePages) {
+
+                        $btn.show();
+                    }
+                    else {
+                        $btn.hide();
+                    }
+            });
+        });
+    }
+</script>

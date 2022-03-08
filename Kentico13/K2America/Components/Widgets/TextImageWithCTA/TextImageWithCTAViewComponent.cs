@@ -46,6 +46,7 @@ namespace K2America.Components.Widgets
                 Description = properties.Description,
                 ImageAltText = properties.ImageAltText,
                 CTALink = properties.CTALink,
+                BackgroundColor=properties.BackgroundColor,
                 CTAText = properties.CTAText
             });
         }

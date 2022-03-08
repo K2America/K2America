@@ -1,0 +1,97 @@
+﻿@using Kentico.PageBuilder.Web.Mvc
+@using Kentico.Web.Mvc
+@addTagHelper Kentico.Content.Web.Mvc.EditableAreaTagHelper, Kentico.Content.Web.Mvc
+@using K2America.Models;
+@model IEnumerable<ContactUs>
+@if (Model != null && Model.Count() > 0 && Model.Any())
+{
+    @foreach (var item in Model)
+    {
+
+        <div class="contactUs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 formText">
+                        <div>
+                            @if (!string.IsNullOrEmpty(item.Title))
+                            {
+                                @Html.Raw(item.Title)
+                            }
+                            @if (!string.IsNullOrEmpty(item.Description))
+                            {
+                                <p>Let's get this conversation started.</p>
+                            }
+                            <div class="contact-us-form">
+                                <editable-area area-identifier="ContactUs" />
+                            </div>
+                        </div>
+                        </div>
+                    <div class="col-lg-6 contact-right">
+                        <iframe src="@item.MapURL"
+                                width="600"
+                                height="450"
+                                style="border: 0"
+                                allowfullscreen=""
+                                loading="lazy">
+                        </iframe>
+                        <div class="mapBackground"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="contactBottom">
+            <div class="container">
+                <div class="row">
+                    @if (!string.IsNullOrEmpty(item.Location))
+                    {
+                        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                            <div class="contactCard">
+                                <ul>
+                                    <li class="contactIcons">
+                                        <img src="@item.LocationIcon" alt="@item.IconAltText" />
+                                    </li>
+                                    <li>
+                                        <h4>Location</h4>
+                                        <p>@item.Location</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    }
+                    @if (!string.IsNullOrEmpty(item.PhoneNumber))
+                    {
+                        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                            <div class="contactCard contactCard2">
+                                <ul>
+                                    <li class="contactIcons">
+                                        <img src="@item.PhoneIcon" alt="@item.IconAltText" />
+                                    </li>
+                                    <li>
+                                        <h4>Phone</h4>
+                                        <a href="tel:@item.PhoneNumber">@item.PhoneNumber</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    }
+                    @if (!string.IsNullOrEmpty(item.Email))
+                    {
+                        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                            <div class="contactCard contactCard2">
+                                <ul>
+                                    <li class="contactIcons">
+                                        <img src="@item.EmailIcon" alt="@item.IconAltText" />
+                                    </li>
+                                    <li>
+                                        <h4>Email</h4>
+                                        <a href="mailto:@item.Email">@item.Email</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+}

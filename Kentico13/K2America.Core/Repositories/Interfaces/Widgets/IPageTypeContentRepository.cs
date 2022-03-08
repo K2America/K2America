@@ -1,4 +1,5 @@
-﻿using K2America.Models;
+﻿using K2America.Core.Dto.Widget;
+using K2America.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,5 +14,10 @@ namespace K2America.Core.Repositories
         IEnumerable<TileContent> GetTileContentItems(string contentPath);
         IEnumerable<RawItemContent> GetRawContentItems(string contentPath);
         IEnumerable<Article> GetArticleContentItems(string contentPath);
+        IEnumerable<Accordion> GetAccordionItems(string contentPath);
+        IEnumerable<CountCardContent> GetCountCardItems(string contentPath);
+        IEnumerable<TabModelDto> GetTabContentItems(string contentPath);
+        IEnumerable<Technology> GetTechnologyItems(string contentPath);
+        ServicesDto GetServicesContentItems(string contentPath, int page);
     }
 }

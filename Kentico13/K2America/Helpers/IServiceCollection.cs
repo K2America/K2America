@@ -22,6 +22,7 @@ namespace K2America.Helpers
             //Add repository scope here as per below example
             services.AddSingleton<INavigationRepository,NavigationRepository>();
             services.AddSingleton<IPageTypeContentRepository, PageTypeContentRepository>();
+            services.AddSingleton<IContactUsRepository, ContactUsRepository>();
         }
     }
 }

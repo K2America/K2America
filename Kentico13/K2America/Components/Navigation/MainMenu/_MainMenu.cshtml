@@ -8,8 +8,10 @@
 }
 @if (Model != null && Model.Count() > 0 && Model.Any())
 {
+    int itemIndex = 1;
     @foreach (var item in Model)
     {
-        <li class=""><a href="@item.NodeAlias" class="@(currentURL==item.NodeAliasPath.ToLower()?"nav-active":"")">@item.DocumentName</a></li>
+        <li class="@(itemIndex==1?"responsive-link":"")"><a href="@item.NodeAlias" class="nav-responsive @(currentURL==item.NodeAliasPath.ToLower()?"nav-active":"")">@item.DocumentName</a></li>
+        itemIndex++;
     }
 }

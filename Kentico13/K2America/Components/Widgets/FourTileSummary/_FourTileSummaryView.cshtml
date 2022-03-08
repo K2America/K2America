@@ -1,0 +1,30 @@
+﻿@using K2America.Components.Widgets
+@model FourTileSummaryViewModel
+
+@if (Model.Items != null && Model.Items.Any())
+{
+    <div class="K2America">
+        <div class="container">
+            @Html.Raw(Model.Title)
+            <div class="row">
+                @foreach (var item in Model.Items)
+                {
+                    <div class="col-lg-3 col-md-6 col-sm-12 col-12">
+                        <div class="K2AmericaCard">
+                            <figure>
+                                <img src="@item.Image" alt="@item.ImageAltText" />
+                            </figure>
+                            <h6>@item.Title</h6>
+                            @if (!string.IsNullOrEmpty(item.Description))
+                            {
+                                <p>
+                                    @item.Description
+                                </p>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}

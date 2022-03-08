@@ -3,22 +3,22 @@
 
 @if (!string.IsNullOrEmpty(Model.Title))
 {
-    <div class="portfolio">
+    <div class="@Model.BackgroundColor">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 portfolioLeft">
+                <div class="col-lg-6 @(Model.BackgroundColor)Left">
                     <div>
-                       @Html.Raw(Model.Title)
-                      @Html.Raw(Model.Description)
-                        @if(!string.IsNullOrEmpty(Model.CTAText) && !string.IsNullOrEmpty(Model.CTALink))
-                        { 
-                        <a href="@Model.CTALink">@Model.CTAText</a>
+                        @Html.Raw(Model.Title)
+                        @Html.Raw(Model.Description)
+                        @if (!string.IsNullOrEmpty(Model.CTAText) && !string.IsNullOrEmpty(Model.CTALink))
+                        {
+                            <a href="@Model.CTALink">@Model.CTAText</a>
                         }
                     </div>
                 </div>
-                <div class="col-lg-6 portfolioRight order-first">
+                <div class="col-lg-6 @(Model.BackgroundColor)Right order-first">
                     <div>
-                        <img src="@Model.ImagePath" alt="@Model.ImagePath" />
+                        <img src="@Model.ImagePath" alt="@Model.ImageAltText" />
                     </div>
                 </div>
             </div>

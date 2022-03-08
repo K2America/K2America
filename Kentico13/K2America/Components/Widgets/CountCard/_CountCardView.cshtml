@@ -1,0 +1,26 @@
+﻿@using K2America.Components.Widgets
+@model CountCardViewModel
+
+@if (Model.Items != null && Model.Items.Any())
+{
+    <div class="numberCount">
+        <div class="container">
+            @Html.Raw(Model.Title)
+            @if (!string.IsNullOrEmpty(Model.Description))
+            {
+                @Html.Raw(Model.Description)
+            }
+            <div class="row">
+                @foreach (var item in Model.Items)
+                {
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12 countCard">
+                        <div class="countCardIn">
+                            <h5>@item.Count</h5>
+                        </div>
+                        <h6>@item.Title</h6>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}

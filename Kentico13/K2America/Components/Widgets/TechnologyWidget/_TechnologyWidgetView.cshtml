@@ -1,0 +1,41 @@
+﻿@using K2America.Components.Widgets
+@model TechnologyWidgetViewModel
+
+@if (Model.Items != null && Model.Items.Any())
+{
+    <div class="technologyStack">
+        <div class="container">
+            @Html.Raw(Model.Title)
+            <div class="row">
+                @{
+                    int itemIndex = 1;
+                    int TotalCount = Model.Items.Count();
+                    string ItemClass = "col-lg-6";
+                    }
+                @foreach (var item in Model.Items)
+                {
+                    @if(TotalCount % 2 != 0 && TotalCount==itemIndex)
+                    {
+                         ItemClass = "col-lg-12";
+                    }
+                <div class="@ItemClass">
+                    <div class="">
+                        <ul class="stackCard">
+                            <li class="stackCardOne">
+                                <div>
+                                    <img src="@item.Icon1" alt="@item.IconAltText" />
+                                    <h4>@item.Name</h4>
+                                </div>
+                            </li>
+                            <li class="stackCardTwo">
+                                    @Html.Raw(item.Technologies)
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                    itemIndex++;
+                }
+            </div>
+        </div>
+    </div>
+}

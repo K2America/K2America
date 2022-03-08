@@ -10,6 +10,10 @@ namespace K2America.Components.Widgets
 {
     public class TextImageWithCTAProperties : IWidgetProperties
     {
+        [EditingComponent(DropDownComponent.IDENTIFIER, Order = 0, Label = "Background Color", Tooltip = "Please Select a Background Color")]
+        [Required(ErrorMessage = "This field is required")]
+        [EditingComponentProperty(nameof(DropDownProperties.DataSource), "portfolio;White\r\nSmartCity;Purple")]
+        public string BackgroundColor { get; set; }
         [EditingComponent(RichTextComponent.IDENTIFIER, Order = 1, Label = "Title")]
         [Required(ErrorMessage = "This field is required")]
         public string Title { get; set; }

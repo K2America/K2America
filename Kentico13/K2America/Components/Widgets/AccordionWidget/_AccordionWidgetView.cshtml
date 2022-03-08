@@ -1,0 +1,31 @@
+﻿@using K2America.Components.Widgets
+@model AccordionWidgetViewModel
+
+@if (Model.Items != null && Model.Items.Any())
+{
+    <div class="container">
+        <div class='softwareAccordion'>
+            <h1>@Model.Title</h1>
+
+            <div class="accordion-container">
+                @foreach(var item in Model.Items)
+                { 
+                <div class="set">
+                    <h4>
+                        @item.Title
+                        <i class="fa fa-plus"></i>
+                    </h4>
+                    @if(!string.IsNullOrEmpty(item.Description))
+                    { 
+                    <div class="content">
+                        <p>
+                           @item.Description
+                        </p>
+                    </div>
+                    }
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+}

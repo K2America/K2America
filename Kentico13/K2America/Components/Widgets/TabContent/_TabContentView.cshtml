@@ -1,0 +1,67 @@
+﻿@using K2America.Components.Widgets
+@model TabContentViewModel
+
+@if (Model.Items != null && Model.Items.Any())
+{
+    <div class="HiringModels">
+        <div class="container">
+            @Html.Raw(Model.Title)
+            @if (!string.IsNullOrEmpty(Model.Description))
+            {
+              <h6>@Model.Description</h6>
+            }
+            <div class="startegySub">
+                <!-- Nav tabs -->
+
+                <div class="borderShadow">
+                    <ul class="nav nav-tabs nav-justified" role="tablist">
+                        <div class="tabSlider"></div>
+                        @{int itemIndex = 0;}
+                        @foreach(var tabItem in Model.Items)
+                        {
+                        <li class="nav-item">
+                            <a class="nav-link @(itemIndex==0?"active":"")"
+                               id="@K2America.Helpers.DataParserHelper.GenerateSectionID(tabItem.TabContent.Name)-tab"
+                               data-toggle="tab"
+                               href="#@K2America.Helpers.DataParserHelper.GenerateSectionID(tabItem.TabContent.Name)"
+                               role="tab"
+                               aria-controls="@K2America.Helpers.DataParserHelper.GenerateSectionID(tabItem.TabContent.Name)"
+                               aria-selected="false">
+                                @tabItem.TabContent.Name
+                            </a>
+                        </li>
+                            itemIndex++;
+                        }
+                    </ul>
+                </div>
+                <!-- Tab panes -->
+                <div class="tab-content">
+
+                    @{int tabIndex = 0;}
+                    @foreach (var tabItem in Model.Items)
+                    {
+                        <div class="tab-pane fade @(tabIndex==0?"show active":"")"
+                             id="@K2America.Helpers.DataParserHelper.GenerateSectionID(tabItem.TabContent.Name)"
+                             role="tabpanel"
+                             aria-labelledby="@K2America.Helpers.DataParserHelper.GenerateSectionID(tabItem.TabContent.Name)-tab">
+                            <div class="row">
+                                @foreach(var item in tabItem.TabContentItems)
+                                { 
+                                <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                                    <div class="hiringModelCard">
+                                       @Html.Raw(item.KeyPoints)
+                                    </div>
+                                </div>
+                               }
+                            </div>
+                        </div>
+                        tabIndex++;
+                    }
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+}

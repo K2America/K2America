@@ -1,0 +1,77 @@
+﻿body {
+}
+.form-field {
+    
+}
+    .form-field input {
+        width: 40%;
+        padding: 12px;
+        background: rgba(8, 36, 113, 0.03);
+        border: 1px solid rgba(102, 102, 102, 0.1);
+        box-sizing: border-box;
+        border-radius: 5px;
+        float:left;
+        margin-right: 10px;
+        margin-bottom: 20px;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 26px;
+    }
+
+.form-field textarea {
+    width: 82.2%;
+    padding: 12px;
+    background: rgba(8, 36, 113, 0.03);
+    border: 1px solid rgba(102, 102, 102, 0.1);
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 26px;
+    margin-top: 30px;
+}
+div.contact-us-form input[type="submit"] {
+    background: #f9556d;
+    border-radius: 100px;
+    font-size: 14px;
+    line-height: 45px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border: none;
+    outline: none;
+    text-align: center;
+    width: 180px;
+    height: 45px;
+    color: #ffffff;
+    margin-top: 40px;
+}
+    div.contact-us-form input[type="submit"]:hover {
+        transition: 0.5s;
+        background: #d93850;
+        box-shadow: 0px 12px 12px 0 rgb(249 85 109 / 30%);
+    }
+div.contact-us-form .field-validation-error {
+    font-weight: bold;
+    color: #D12127;
+}
+
+    @media only screen and (max-width: 991px) {
+        .form-field input {
+            width: 48%;
+        }
+
+        .form-field textarea {
+            width: 98.2%;
+        }
+    }
+@media only screen and (max-width: 479px) {
+    .form-field input {
+        width: 98.2%;
+    }
+}
+
+@media only screen and (max-width: 599px) {
+    .form-field input {
+        width: 98.2%;
+    }
+}

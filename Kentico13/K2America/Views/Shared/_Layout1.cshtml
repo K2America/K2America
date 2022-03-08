@@ -24,7 +24,7 @@
     <link rel="icon"
           type="image/png"
           sizes="16x16"
-          href="assets/images/logo.svg" />
+          href="@HeaderLogo" />
     <title>K2</title>
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
           rel="stylesheet" />
@@ -50,12 +50,12 @@
                             </a>
                             <div class="container">
                                 <ul>
-                                    <vc:header-menu home-view="true"/>
+                                    <vc:header-menu home-view="true" />
                                     <li class="responsive-menuTwo">
                                         <h6><img src="images/contact-icon.svg" alt="@LogoAltText" />Contact Info</h6>
                                         <p><img src="@AddressIcon" alt="@LogoAltText" />@Html.Raw(Address)</p>
-                                        <a href="#" class="location"><img src="@PhoneIcon" alt="@LogoAltText" />@PhoneNumber</a>
-                                        <a href="#" class="location"><img src="@EmailIcon" alt="@LogoAltText" />@Email</a>
+                                        <a href="tel:@PhoneNumber" class="location"><img src="@PhoneIcon" alt="@LogoAltText" />@PhoneNumber</a>
+                                        <a href="mailto:@Email" class="location"><img src="@EmailIcon" alt="@LogoAltText" />@Email</a>
 
                                     </li>
                                 </ul>
@@ -71,11 +71,11 @@
             @RenderBody()
             <div class="slide sliderBanner5" id="slide5">
                 <div class="row sliderRow">
-                    <div class="col-lg-6 slideOneLeft slider5">
+                    <div class="col-lg-7 slideOneLeft slider5">
                         <div class="slider5Row">
-                            <div class="row">
+                            <div class="row sliderFlow">
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-12 sliderFiveLeft">
-                                    <div class="slider5Left">
+                                    <div class="slider5Left one">
                                         <h5>Work</h5>
                                         <ul>
                                             <vc:footer />
@@ -83,7 +83,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-12 sliderFiveLeft">
-                                    <div class="slider5Right">
+                                    <div class="slider5Right two">
                                         <h5>Contact Info</h5>
                                         <ul>
                                             <li>
@@ -91,8 +91,8 @@
                                                     <img src="@AddressIcon" alt="@LogoAltText" /> @Html.Raw(Address)
                                                 </p>
                                             </li>
-                                            <li><a href="#" class="location"><img src="@PhoneIcon" alt="@LogoAltText" />@PhoneNumber</a></li>
-                                            <li><a href="#" class="location"><img src="@EmailIcon" alt="@LogoAltText" />@Email</a></li>
+                                            <li><a href="tel:@PhoneNumber" class="location"><img src="@PhoneIcon" alt="@LogoAltText" />@PhoneNumber</a></li>
+                                            <li><a href="mailto:@Email" class="location"><img src="@EmailIcon" alt="@LogoAltText" />@Email</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -104,14 +104,14 @@
                                         <p>
                                             @FooterText
                                         </p>
-                                        <vc:social-media home-view="true"/>
+                                        <vc:social-media home-view="true" />
                                     </li>
                                 </ul>
                             </div>
                             <!-- <h6>© K2America PVT LTD 2022 . All rights reserved</h6> -->
                         </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-5">
                         <!-- <div>
                           <img src="images/sliderFive.png" class="slider5_Img" alt="" />
                         </div> -->
@@ -164,12 +164,21 @@
         }
     </script>
     <script type="text/javascript">
+        $(window).on("scroll", function () {
+            if ($(window).scrollTop()) {
+                $(".header-area").addClass("nav-sticky");
+            } else {
+                $(".header-area").removeClass("nav-sticky");
+            }
+        });
+    </script>
+    <script type="text/javascript">
         let media = window.matchMedia("(max-width:991px)");
         if (!media.matches) {
             jQuery(function ($) {
                 $("#myContainer").fullpage({
                     // sectionsColor: ['#ff73a1', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff', '#ccc'],
-                    anchors: ["firstPage", "secondPage", "3rdPage", "4thpage"],
+                    // anchors: ["firstPage", "secondPage", "3rdPage", "4thpage"],
                     menu: "#menu",
                     slidesNavigation: true,
                     scrollHorizontally: true,
